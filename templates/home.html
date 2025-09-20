@@ -9,13 +9,29 @@
 <form method="post" action="{% url 'home' %}">
     {% csrf_token %}
     <form>
-  <div class="mb-3">
+  <!-- <div class="mb-3">
+    <i class="material-icons">person</i>
     <input type="text" class="form-control" name="username", placeholder="Username" required>
-  </div></br>
-  <div class="mb-3">
+    
+  </div></br> -->
+    <div class="mb-3 input-group">
+        <span class="input-group-text">
+            <i class="material-icons">person</i>
+        </span>
+        <input type="text" class="form-control" name="username" placeholder="Username" required>    
+    </div></br>
+
+  <!-- <div class="mb-3">
     <input type="password" class="form-control" name="password", placeholder="password" required>
-  </div>
-  <br>
+    <i class="material-icons">lock</i>
+  </div> -->
+    <div class="mb-3 input-group">
+        <span class="input-group-text">
+            <i class="material-icons">lock</i>
+        </span>
+        <input type="password" class="form-control" name="password", placeholder="password" required>    
+    </div>
+    <br>
 
   <button type="submit" class="btn btn-secondary">Login</button>
 </form>
