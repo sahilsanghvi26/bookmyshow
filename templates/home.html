@@ -1,42 +1,165 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-<div class="col-md-6 offset-md-3">
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
 {% if user.is_authenticated %}
-<h1>Hello World</h1>
-{% else %}
-<h1>Login</h1>
-<br>                
-<form method="post" action="{% url 'home' %}">
-    {% csrf_token %}
-    <form>
-  <!-- <div class="mb-3">
-    <i class="material-icons">person</i>
-    <input type="text" class="form-control" name="username", placeholder="Username" required>
-    
-  </div></br> -->
-    <div class="mb-3 input-group">
-        <span class="input-group-text">
-            <i class="material-icons">person</i>
-        </span>
-        <input type="text" class="form-control" name="username" placeholder="Username" required>    
-    </div></br>
+    <!-- Movie Recommendation Section - Full Width -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center mb-3 px-3">
+                    <h4 class="fw-bold text-dark">Recommended Movies</h4>
+                    <a href="#" class="text-decoration-none text-danger">See All ›</a>
+                </div>
+                
+                <!-- Horizontal Scrolling Cards Container -->
+                <div class="movie-scroll-container px-3">
+                    <div class="movie-cards-wrapper">
+                        
+                        <!-- Movie Card 1 - Ajey -->
+                        <div class="movie-card">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="{% static 'images/movies/ajey.jpg' %}" class="card-img-top movie-poster" alt="Ajey">
+                                    <span class="promoted-badge">PROMOTED</span>
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        <span class="rating-text">9.6/10</span>
+                                        <span class="votes-text ms-2">579 Votes</span>
+                                    </div>
+                                    <h6 class="movie-title mb-1">Ajey: The Untold Story of a Yogi</h6>
+                                    <p class="movie-genre">Biography/Drama</p>
+                                </div>
+                            </div>
+                        </div>
 
-  <!-- <div class="mb-3">
-    <input type="password" class="form-control" name="password", placeholder="password" required>
-    <i class="material-icons">lock</i>
-  </div> -->
-    <div class="mb-3 input-group">
-        <span class="input-group-text">
-            <i class="material-icons">lock</i>
-        </span>
-        <input type="password" class="form-control" name="password", placeholder="password" required>    
+                        <!-- Movie Card 2 - Vash Level 2 -->
+                        <div class="movie-card">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="{% static 'images/movies/vash_level_2.jpg' %}" class="card-img-top movie-poster" alt="Vash Level 2">
+                                    <span class="promoted-badge">PROMOTED</span>
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        <span class="rating-text">8.3/10</span>
+                                        <span class="votes-text ms-2">11K Votes</span>
+                                    </div>
+                                    <h6 class="movie-title mb-1">Vash Level 2</h6>
+                                    <p class="movie-genre">Supernatural/Thriller</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Movie Card 3 - Jolly LLB 3 -->
+                        <div class="movie-card">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="{% static 'images/movies/jolly_llb_3.jpg' %}" class="card-img-top movie-poster" alt="Jolly LLB 3">
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        <span class="rating-text">8.8/10</span>
+                                        <span class="votes-text ms-2">17.1K Votes</span>
+                                    </div>
+                                    <h6 class="movie-title mb-1">Jolly LLB 3</h6>
+                                    <p class="movie-genre">Comedy/Drama</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Movie Card 4 - Dashavatar -->
+                        <div class="movie-card">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="{% static 'images/movies/dashavatar.jpg' %}" class="card-img-top movie-poster" alt="Dashavatar">
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        <span class="rating-text">9.1/10</span>
+                                        <span class="votes-text ms-2">17.7K Votes</span>
+                                    </div>
+                                    <h6 class="movie-title mb-1">Dashavatar</h6>
+                                    <p class="movie-genre">Adventure/Drama/Thriller</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Movie Card 5 - Demon Slayer -->
+                        <div class="movie-card">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="{% static 'images/movies/demon_slayer.jpg' %}" class="card-img-top movie-poster" alt="Demon Slayer">
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        <span class="rating-text">9.5/10</span>
+                                        <span class="votes-text ms-2">105.7K Votes</span>
+                                    </div>
+                                    <h6 class="movie-title mb-1">Demon Slayer: Kimetsu no Yaiba Infinity Castle</h6>
+                                    <p class="movie-genre">Action/Adventure/Anime</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More cards for scrolling -->
+                        <div class="movie-card">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="position-relative">
+                                    <img src="{% static 'images/movies/lokah.jpg' %}" class="card-img-top movie-poster" alt="More Movie">
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        <span class="rating-text">8.5/10</span>
+                                        <span class="votes-text ms-2">5K Votes</span>
+                                    </div>
+                                    <h6 class="movie-title mb-1">Lokah</h6>
+                                    <p class="movie-genre">Action/Fantasy</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
 
-  <button type="submit" class="btn btn-secondary">Login</button>
-</form>
-</form>
-</div> 
+{% else %}
+    <!-- Login Form - Keep it centered -->
+    <div class="col-md-6 offset-md-3">
+        <h1>Login</h1>
+        <br>                
+        <form method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="mb-3 input-group">
+                <span class="input-group-text">
+                    <i class="material-icons">person</i>
+                </span>
+                <input type="text" class="form-control" name="username" placeholder="Username" required>    
+            </div>
+
+            <div class="mb-3 input-group">
+                <span class="input-group-text">
+                    <i class="material-icons">lock</i>
+                </span>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>    
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-secondary">Login</button>
+        </form>
+    </div>
 {% endif %}
-{% endblock %}
 
+{% endblock %}
